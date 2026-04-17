@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: agentsec-scanner
+Version: 0.1.0
+Summary: Security scanner for AI agent projects and configs
+Requires-Python: >=3.10

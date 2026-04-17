@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentsec-scanner"
+version = "0.1.0"
+description = "Security scanner for AI agent projects and configs"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+agentsec = "agentsec.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["agentsec*"]

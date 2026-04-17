@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>AgentSec Scanner</title>
+    <link rel="stylesheet" href="/styles.css"/>
+</head>
+<body>
+<header class="header">
+    <div>
+        <h1>AgentSec</h1>
+        <p class="subtitle">Watch a live security scan of an agent project folder</p>
+    </div>
+    <div class="health" id="health">Checking backend…</div>
+</header>
+
+<main class="layout">
+    <section class="panel controls">
+        <label for="path">Project root to scan</label>
+        <div class="row">
+            <input id="path" type="text" placeholder="e.g. C:\dev\my-agent-project or /home/me/proj" autocomplete="off"/>
+            <button id="scanBtn" type="button">Start scan</button>
+        </div>
+
+        <fieldset class="targets-fieldset">
+            <legend>Tools &amp; stacks used to build this agent</legend>
+            <p class="hint fieldset-hint">Select what you used so the scanner can flag gaps (declared but not detected) and optionally narrow the report.</p>
+            <div id="targetGrid" class="target-grid" aria-label="Target stacks"></div>
+            <label class="focus-row">
+                <input type="checkbox" id="focusTargets"/>
+                <span>Focus scan — only universal issues (secrets, dangerous execution) plus findings tagged for the stacks you selected</span>
+            </label>
+        </fieldset>
+
+        <p class="hint">Python 3.10+ must be on PATH. The UI server runs the scanner in <code>scanner/</code> via <code>python -m agentsec</code>.</p>
+
+        <div class="progress" aria-live="polite">
+            <div class="progress-bar" id="progressBar"></div>
+            <div class="progress-meta">
+                <span id="progressLabel">Idle</span>
+                <span id="progressCounts"></span>
+            </div>
+            <div class="current-path" id="currentPath"></div>
+        </div>
+    </section>
+
+    <section class="panel results">
+        <div class="results-header">
+            <h2>Findings</h2>
+            <div id="frameworks" class="chips"></div>
+        </div>
+        <div id="summary" class="summary"></div>
+        <div id="findings" class="findings"></div>
+    </section>
+</main>
+
+<script src="/app.js" type="module"></script>
+</body>
+</html>

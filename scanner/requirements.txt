@@ -1,0 +1,2 @@
+# Optional: pip install -e . from scanner/ uses pyproject.toml
+# For minimal venv: pip install -e .
