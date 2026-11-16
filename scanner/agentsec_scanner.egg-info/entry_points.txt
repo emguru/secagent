@@ -1,2 +1,0 @@
-[console_scripts]
-agentsec = agentsec.cli:main

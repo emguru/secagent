@@ -1,6 +1,7 @@
 .tools/
 **/target/
 **/__pycache__/
+*.egg-info/
 .venv/
 venv/
 *.log
